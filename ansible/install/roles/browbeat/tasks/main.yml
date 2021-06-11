@@ -95,6 +95,12 @@
     path: "{{ browbeat_path }}/ansible/hosts"
   register: hosts_file_exists
 
+- name: Determine if generate_tripleo_hostfile has been run
+  stat:
+    path: "{{ browbeat_path }}/ansible/hosts.yml"
+  register: hosts_file_exists
+  when: not hosts_file_exists.stat.exists
+
 - debug: msg="Hosts file is already generated."
   when: hosts_file_exists.stat.exists and hosts_file_exists.stat.isreg
 

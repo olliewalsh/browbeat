@@ -8,7 +8,7 @@
 #
 
 - hosts: Controller
-  remote_user: heat-admin
+  remote_user: "{{ host_remote_user|default('heat-admin') }}"
   pre_tasks:
     - name: Check for variable (token_provider)
       fail: msg="token_provider not defined"

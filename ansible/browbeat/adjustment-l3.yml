@@ -7,7 +7,7 @@
 #
 
 - hosts: Controller
-  remote_user: heat-admin
+  remote_user: "{{ host_remote_user|default('heat-admin') }}"
   gather_facts: false
   vars:
     ansible_become: true

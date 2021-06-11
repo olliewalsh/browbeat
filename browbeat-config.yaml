@@ -253,41 +253,41 @@ workloads:
         file: rally/neutron/neutron-boot-server-and-batch-add-subports.yml
 
   - name: nova
-    enabled: false
+    enabled: true
     type: rally
     rally_deployment: overcloud
     concurrency:
-      - 2
+      - 3
     times: 10
     scenarios:
       - name: boot-snapshot-delete-cirros
-        enabled: true
+        enabled: false
         file: rally/nova/nova-boot-snapshot-cc.yml
         image_name: cirros
         flavor_name: m1.xtiny
       - name: boot-list-cirros
-        enabled: true
+        enabled: false
         image_name: cirros
         file: rally/nova/nova-boot-list-cc.yml
         flavor_name: m1.xtiny
       - name: boot-show-cirros
-        enabled: true
+        enabled: false
         image_name: cirros
         file: rally/nova/nova-boot-show-cc.yml
         flavor_name: m1.xtiny
       - name: boot-bounce-delete-cirros
-        enabled: true
+        enabled: false
         image_name: cirros
         file: rally/nova/nova-boot-bounce-delete-cc.yml
         flavor_name: m1.xtiny
       - name: boot-lock-unlock-cirros
-        enabled: true
+        enabled: false
         image_name: cirros
         file: rally/nova/nova-lock-unlock-cc.yml
         flavor_name: m1.xtiny
       - name: boot_server_from_volume_and_resize
         enabled: true
-        image_name: cirros
+        image_name: centos7
         file: rally/nova/nova-boot-from-volume-and-resize.yml
         initial_flavor_name: m1.tiny
         final_flavor_name: m1.small

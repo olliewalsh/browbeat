@@ -108,7 +108,7 @@
 
 - name: (Controller, delegated to UC) Get overcloudrc
   remote_user: "{{local_remote_user}}"
-  shell: "cat /home/stack/overcloudrc | grep 'export OS' | awk '{gsub(/export /,\"Environment=\");print }'"
+  shell: "cat {{ overcloudrc }} | grep 'export OS' | awk '{gsub(/export /,\"Environment=\");print }'"
   delegate_to: "{{groups['Undercloud'][0]}}"
   register: overcloudrc_file
   when: "'Controller' in group_names and gnocchi_status_controller_collectd_plugin and inventory_hostname == groups['Controller'][0]"

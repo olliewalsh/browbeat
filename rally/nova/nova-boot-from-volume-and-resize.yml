@@ -15,10 +15,12 @@
         to_flavor:
             name: "{{final_flavor_name}}"
         confirm: true
-        volume_size: 1
+        volume_size: 10
         force_delete: false
         do_delete: true
-        boot_server_kwargs: {}
+        common_az: true
+        boot_server_kwargs:
+            auto_assign_az: true
         create_volume_kwargs: {}
       runner:
         type: "constant"

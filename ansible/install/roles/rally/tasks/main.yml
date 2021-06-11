@@ -36,6 +36,13 @@
     version: "{{ rally_openstack_version }}"
     virtualenv: "{{ rally_venv }}"
 
+
+- name: Workaround https://bugs.launchpad.net/rally/+bug/1922707
+  pip:
+    name: decorator
+    version: "4.4.2"
+    virtualenv: "{{ rally_venv }}"
+
 - name: Create rally configuration directory
   file:
     path: "{{ rally_venv }}/etc/rally"
